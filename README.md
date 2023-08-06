@@ -1,5 +1,5 @@
 
-#  Django rest framework project base  :sparkles:  
+#  Django celery :sparkles:  
   
 project created to generate tasks programs.
 
