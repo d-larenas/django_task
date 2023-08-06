@@ -12,6 +12,9 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
+    volumes:
+      - .:/app:z
+      - ./celery_beat_schedule:/celery_beat_schedule
     command: /start
     ports:
       - "5000:5000"

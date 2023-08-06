@@ -16,6 +16,7 @@ djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.2.0 # https://github.com/adamchainz/django-cors-headers
 djangorestframework-simplejwt==5.2.2 # https://github.com/jazzband/django-rest-framework-simplejwt/blob/master/docs/getting_started.rst
 drf-api-logger # https://github.com/vishalanandl177/DRF-API-Logger
-celery==5.3.1
+celery[redis]==5.3.1
 django-celery-beat==2.5.0
+hiredis==2.2.3
 redis==4.6.0
