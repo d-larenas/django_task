@@ -129,7 +129,7 @@ project created to generate tasks programs.
 
      python manage.py makemigrations --settings=config.settings.local 
      python manage.py migrate --settings=config.settings.local 
-     python manage.py runserver 0.0.0.0:8000 --settings=config.settings.local 
+     python manage.py runserver 0.0.0.0:5000 --settings=config.settings.local 
 
  
 ## Production environment docker <img src="https://img.icons8.com/fluent/50/000000/docker.png"/>  
@@ -137,9 +137,9 @@ project created to generate tasks programs.
 ### Run commands  
 #### Create docker image production:  
 
-     docker-compose -f production.yml build 
+     docker compose -f production.yml build 
 
  
 #### Run image docker production  
 
-     docker-compose -f production.yml up -d  
+     docker compose -f production.yml up -d  
