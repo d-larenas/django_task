@@ -1,13 +1,15 @@
 
 #  Django rest framework project base  :sparkles:  
   
-Project creation that serves as the basis for developing a REST API using Django.  
+project created to generate tasks programs.
 
 ## Requirement to run in project  
   
- 1. Python 3.9  
+ 1. Python 3.10  
  2. docker  
- 3. docker-compose  
+ 3. docker-compose
+ 4. redis
+ 5. celery  
  
  
 
