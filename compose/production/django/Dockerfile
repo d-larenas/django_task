@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.9-slim-buster
+ARG PYTHON_VERSION=3.10-slim-buster
 
 
 
@@ -73,6 +73,14 @@ RUN chmod +x /entrypoint
 COPY --chown=django:django ./compose/production/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
+
+COPY --chown=django:django ./compose/local/django/celery/worker/start /start-celery-worker
+RUN sed -i 's/\r$//g' /start-celery-worker
+RUN chmod +x /start-celery-worker
+
+COPY --chown=django:django ./compose/local/django/celery/beat/start /start-celery-beat
+RUN sed -i 's/\r$//g' /start-celery-beat
+RUN chmod +x /start-celery-beat
 
 
 # copy application code to WORKDIR

@@ -5,7 +5,7 @@ volumes:
   local_postgres_data_backups: {}
 
 services:
-  django:
+  django: &django
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
@@ -19,7 +19,7 @@ services:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
     ports:
-      - "8000:8000"
+      - "5000:5000"
     networks:
       - gropoz-network
     command: /start
@@ -39,6 +39,35 @@ services:
       - gropoz-network
     ports:
       - "5432:5432"
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - gropoz-network
+
+  celery_worker:
+    <<: *django
+    image: apps_local_celery_worker
+    container_name: apps_local_celery_worker
+    depends_on:
+      - redis
+    ports: [ ]
+    command: /start-celery-worker
+    networks:
+      - gropoz-network
+
+  celery_beat:
+    <<: *django
+    image: apps_local_celery_beat
+    container_name: apps_local_celery_beat
+    depends_on:
+      - redis
+    ports: [ ]
+    command: /start-celery-beat
+    networks:
+      - gropoz-network
 
 networks:
     gropoz-network:

@@ -17,6 +17,14 @@ urlpatterns = [
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
+# handling the 404 error
+handler404 = 'users.views.error_404_view'
+
+handler500 = 'users.views.error_500_view'
+
+handler403 = 'users.views.error_404_view'
+
+handler400 = 'users.views.error_404_view'
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

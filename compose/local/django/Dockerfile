@@ -1,5 +1,4 @@
-ARG PYTHON_VERSION=3.9-slim-buster
-
+ARG PYTHON_VERSION=3.10-slim-buster
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
 
@@ -60,6 +59,14 @@ RUN chmod +x /entrypoint
 COPY ./compose/local/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
+
+COPY ./compose/local/django/celery/worker/start /start-celery-worker
+RUN sed -i 's/\r$//g' /start-celery-worker
+RUN chmod +x /start-celery-worker
+
+COPY ./compose/local/django/celery/beat/start /start-celery-beat
+RUN sed -i 's/\r$//g' /start-celery-beat
+RUN chmod +x /start-celery-beat
 
 
 

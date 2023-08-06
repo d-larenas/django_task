@@ -79,7 +79,10 @@ Project creation that serves as the basis for developing a REST API using Django
     # ------------------------------------------------------------------------------  
     URL_TOKE_SEND_ACCOUNT=http://localhost:8000  
     URL_TOKE_SEND_RESET_PASSWORD=http://localhost:8000
-     URL_BASE_BACKEND=http://localhost:8000
+    URL_BASE_BACKEND=http://localhost:8000
+    URL_REDIRECT=https://page.gropoz.com
+    CELERY_BROKER_URL=redis://redis:6379/0
+    
 :wrench:**Add variables to .postgres file**
 
     # PostgreSQL  
