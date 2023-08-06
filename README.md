@@ -1,7 +1,6 @@
 
 #  Django celery :sparkles:  
-  
-project created to generate tasks programs.
+  project to manage web service status validation program tasks for fun
 
 ## Requirement to run in project  
   
