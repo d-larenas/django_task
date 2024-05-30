@@ -278,4 +278,5 @@ CORS_URLS_REGEX = r"^/api/.*$"
 DRF_API_LOGGER_DATABASE = True
 
 URL_REDIRECT = env("URL_REDIRECT", default="https://google.com")
+TASK_VALIDATE_MINUTES = env.int("TASK_VALIDATE_MINUTES", default=60*12)
 
