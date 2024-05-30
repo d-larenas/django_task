@@ -1,0 +1,27 @@
+- model: logs_page.sitealert
+  pk: 1
+  fields:
+    created: 2023-08-07 18:52:02.731471+00:00
+    modified: 2023-08-07 18:52:02.731491+00:00
+    uuid: a98c179d-e258-4c7c-93b3-e8c2acc1060e
+    url_site: https://diego-larenas.gropoz.com/
+    message_type: 1
+    enable: true
+- model: logs_page.sitealert
+  pk: 2
+  fields:
+    created: 2023-08-07 18:52:21.231462+00:00
+    modified: 2023-08-07 18:52:21.231479+00:00
+    uuid: fbe47022-2acd-4952-b4c5-ce3cca6ad849
+    url_site: https://page.gropoz.com/
+    message_type: null
+    enable: true
+- model: logs_page.sitealert
+  pk: 3
+  fields:
+    created: 2023-08-07 18:52:21.231462+00:00
+    modified: 2023-08-07 18:52:21.231479+00:00
+    uuid: a585e7cb-6487-46d2-b52e-f6fac87dc103
+    url_site: https://pag.gropoz.com/
+    message_type: null
+    enable: true

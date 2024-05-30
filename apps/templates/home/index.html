@@ -12,26 +12,29 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'images/favicon.png' %}" rel="icon">
-  <link href="{% static 'images/favicon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
+  
+
   <!-- =======================================================
-  * Template Name: MyResume - v2.2.1
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Template Name: BizLand
+  * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -39,204 +42,257 @@
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://github.com/d-larenas/" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/diego-larenas-7704411b6/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <nav class="nav-menu">
-      <ul>
-          <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about"><i class="bx bx-user"></i> <span>Yo</span></a></li>
-          <li><a href="#services"><i class="bx bx-server"></i> <span>Herramientas</span></a></li>
-           <!--
-        <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#portfolio"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+      <h1 class="logo"><a href="index.html">D.L<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
-        <li><a href="#contact"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>-->
-      </ul>
-    </nav><!-- .nav-menu -->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Sobre mi</a></li>
+          <li><a class="nav-link scrollto" href="#services">Tecnologias</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Contacto</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
+    </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <h1>Diego Larenas.</h1>
-      <p>I'm <span class="typed" data-typed-items="Computer engineer, Developer"></span></p>
-      <div class="social-links">
-          <!--
-
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        -->
-           <a href="https://github.com/larenas-d" class="github" target="_blank"><i class="bx bxl-github"></i></a>
-        <a href="https://www.linkedin.com/in/diego-larenas-7704411b6/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+      <h1>I'm <span class="typed" data-typed-items="Computer engineer, BackEnd Developer, Developer"></span></h1>
+      <h2>Un apasionado desarrollador backend</h2>
+      <div class="d-flex">
+        <a href="#about" class="btn-get-started scrollto">Sobre mi</a>
       </div>
     </div>
   </section><!-- End Hero -->
-<main id="main">
-      <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>yo</h2>
-          <p>Soy Ingeniero informático enfocado en ser desarrollador backend. Me gusta aplicar buenas prácticas y seguir los estándares de desarrollo, además de mantener estructuradas las actividades de cada proyecto. Siempre busco la mejor solución para cada reto que salga en los desarrollos que participo. Trabajando con tecnología como Python, Django, git, entre otras. Para el desarrollo de microservicio y api rest.</p>
+          <h2>Sobre mi</h2>
+          <h3>Saber más <span>Sobre mi</span></h3>
+          <p>Soy Ingeniero informático, con especialización en desarrollo backend. Me interesa aplicar las
+            mejores prácticas y cumplir con los estándares de desarrollo establecidos para mantener un alto
+            nivel de calidad en mis proyectos. Me esfuerzo por mantener una estructura organizada en todas
+            las actividades relacionadas con el proyecto y fomentar el trabajo en equipo. Me esfuerzo por
+            buscar la solución más adecuada para enfrentar los desafíos que surjan durante el desarrollo de los
+            proyectos en los que colaboro.</p>
         </div>
+
+
+
       </div>
     </section><!-- End About Section -->
 
-   <!-- ======= Services Section ======= -->
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 col-md-12">
+            <div class="count-box">
+              <i class="bi bi-emoji-smile"></i>
+
+              <span  class="purecounter"></span>
+              <p>Años de experiencia</p>
+              
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+    <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Herramientas</h2>
-          <p>Algunas herramientas que dominio y me gustan.</p>
-        </div>
+          <h2>Tecnologías</h2>
+          <h3>Algunas herramientas que dominio y<span> me gustan.</span></h3>
+          <p>Abordo los desafíos asignados utilizando una variedad de tecnologías y herramientas, siempre en constante aprendizaje para mantenerme actualizado en un entorno dinámico y cambiante. </p>
+          </div></div>
 
+        <div class="max-width-1370">
         <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
               <div class="icon">
-                <img src="{% static 'images/logo/Python-logo.png' %}" alt="" class="card-img-top">
+                <img src="{% static 'assets/img/logo/Python-logo.png' %}" alt="" class="card-img-top">
               </div>
-              <h4><a href="https://www.python.org" target="_blank">Python</a></h4>
+              <h4><a href="">Python</a></h4>
               <p>Mi lenguaje de programacion principal, facil de comprender y muy potente.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box iconbox-orange ">
-              <div class="icon">
-                  <img src="{% static 'images/logo/Django-Logo.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://www.djangoproject.com" target="_blank">Django</a></h4>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch  mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/Django-Logo.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">Django</a></h4>
               <p>Buen framework para desarrollo web, utilizando python y un potente ORM.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-pink">
-              <div class="icon">
-                <img src="{% static 'images/logo/drf-logo.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://www.django-rest-framework.org" target="_blank">Django rest framework</a></h4>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch  mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/drf-logo.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">Django rest framework</a></h4>
               <p>Framework basado en Django para el desarrollo de api rest potente y escalables.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-yellow">
-              <div class="icon">
-                 <img src="{% static 'images/logo/git-logo.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://git-scm.com" target="_blank">Git</a></h4>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch  mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/git-logo.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">Git</a></h4>
               <p>Control de version mediante git, ademas de repositorio remotos como github o gitlab.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box iconbox-red">
-              <div class="icon">
-                <img src="{% static 'images/logo/celery-logo.webp' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://docs.celeryproject.org/en/stable/" target="_blank">Celery</a></h4>
-              <p>Generar tareas programadas facilmente, con facil implementacion para lenguaje python.</p>
+
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/fastapi.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">Fastapi</a></h4>
+              <p>Es fácil de usar, altamente eficiente y basado en estándares abiertos.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-teal">
-              <div class="icon">
-                <img src="{% static 'images/logo/postman-logo.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://www.postman.com" target="_blank">Postman</a></h4>
-              <p>Gran herramienta para probar y documentar una api rest.</p>
-            </div>
-          </div>
-
-             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-teal">
-              <div class="icon">
-                <img src="{% static 'images/logo/Docker-Logo-1.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://www.docker.com" target="_blank">Docker</a></h4>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/Docker-Logo-1.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">Docker</a></h4>
               <p>Es una tecnología de creación de contenedores que permite la creación y el uso de contenedores de Linux.</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-teal">
-              <div class="icon">
-                <img src="{% static 'images/logo/fastapi.png' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://fastapi.tiangolo.com" target="_blank">Fastapi</a></h4>
-              <p>Framework ligero para construir servicios web.</p>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/kubernetes.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">kubernetes</a></h4>
+              <p>"Como desarrollador, poseo habilidades en el despliegue de servicios utilizando Kubernetes.</p>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box iconbox-teal">
-              <div class="icon">
-                <img src="{% static 'images/logo/Playwright.webp' %}" alt="" class="card-img-top">
-              </div>
-              <h4><a href="https://playwright.dev/python/" target="_blank">Playwright</a></h4>
-              <p>Playwright permite pruebas confiables de extremo a extremo para aplicaciones web automatizando pruebas.</p>
-            </div>
-          </div>
-
           
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/cdci.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">CI/CD</a></h4>
+              <p>Como desarrollador, tengo experiencia en la configuración de pipelines, como los de GitHub Actions</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><img src="{% static 'assets/img/logo/sql.png' %}" alt="" class="card-img-top"></div>
+              <h4><a href="">SQL</a></h4>
+              <p>Trabajo con bases de datos relacionales como PostgreSQL, MySQL, entre otros.</p>
+            </div>
+          </div>
 
         </div>
-
+      </div>
       </div>
     </section><!-- End Services Section -->
-</main>
+
+
+  </main><!-- End #main -->
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="container">
-      <h3 style=" color: #fff;">Diego Larenas</h3>
-      <p></p>
-      <div class="social-links">
-          <!--
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        -->
-        <a href="https://www.linkedin.com/in/diego-larenas-7704411b6/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            <a href="https://github.com/larenas-d" class="github"><i class="bx bxl-github"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Gropoz</span></strong>. All Rights Reserved
-      </div>
 
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Redes Sociales</h4>
+            <p></p>
+            <div class="social-links mt-3">
+              <a href="https://github.com/d-larenas/" class="github"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/diego-larenas-7704411b6/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Diego Larenas</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
   <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/typed.js/typed.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/typed.js/typed.min.js' %}"></script>
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <script>  // Hero typed
+    if ($('.typed').length) {
+      var typed_strings = $(".typed").data('typed-items');
+      typed_strings = typed_strings.split(',')
+      new Typed('.typed', {
+        strings: typed_strings,
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    }
+    </script>
+
 
 </body>
 

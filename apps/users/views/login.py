@@ -1,6 +1,6 @@
 """Views login."""
 from django.conf import settings
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 # serializers
@@ -14,8 +14,7 @@ class LoginGetTokenObtainPairView(TokenObtainPairView):
 
 def home(request):
     """Home page."""
-    url = settings.URL_REDIRECT
-    return redirect(url)
+    return render(request, "home/index.html")
 
 
 def error_404_view(request, exception):

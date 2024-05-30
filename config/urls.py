@@ -18,13 +18,13 @@ urlpatterns = [
 
 
 # handling the 404 error
-handler404 = 'users.views.error_404_view'
+handler404 = 'apps.users.views.error_404_view'
 
-handler500 = 'users.views.error_500_view'
+handler500 = 'apps.users.views.error_500_view'
 
-handler403 = 'users.views.error_404_view'
+handler403 = 'apps.users.views.error_404_view'
 
-handler400 = 'users.views.error_404_view'
+handler400 = 'apps.users.views.error_404_view'
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

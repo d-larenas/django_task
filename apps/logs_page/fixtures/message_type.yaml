@@ -1,0 +1,8 @@
+- model: logs_page.messagetype
+  pk: 1
+  fields:
+    created: 2023-08-07 18:51:42.969648+00:00
+    modified: 2023-08-07 18:51:42.969673+00:00
+    uuid: a585e7cb-6487-46d2-b52e-f6fac87dc103
+    email: diego@example.com
+    type_alert: 1
