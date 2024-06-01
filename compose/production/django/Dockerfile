@@ -37,9 +37,9 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 
-COPY . ${APP_HOME}
 
 WORKDIR ${APP_HOME}
+
 
 RUN addgroup --system django \
     && adduser --system --ingroup django django
