@@ -1,9 +1,6 @@
 from config import celery_app
-import requests
-from apps.logs_page.models import SiteAlert, MessageType
-import logging
 from django.utils import timezone
-from django.conf import settings
+
 
 
 @celery_app.task(name='test')

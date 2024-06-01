@@ -9,11 +9,10 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.mysql
     volumes:
-      - .:/app:z
       - ./celery_beat_schedule:/celery_beat_schedule
     command: /start
     ports:
-      - "5000:5000"
+      - "8000:5000"
 
   redis:
     image: redis:6-alpine
