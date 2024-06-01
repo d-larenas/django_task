@@ -1,21 +1,14 @@
-# from config import celery_app
-# import requests
-# from apps.logs_page.models import SiteAlert, MessageType
-# import logging
-# from django.utils import timezone
-# from django.conf import settings
-#
-#
-# @celery_app.task(name='test')
-# def test_db():
-#
-#     email = MessageType.objects.get(email='diego.san.lan+6@gmail.com')
-#
-#     SiteAlert.objects.create(
-#         url_site='http://127.0.0.1:8000/',
-#         message_type=email
-#
-#     )
+from config import celery_app
+import requests
+from apps.logs_page.models import SiteAlert, MessageType
+import logging
+from django.utils import timezone
+from django.conf import settings
+
+
+@celery_app.task(name='test')
+def test_db():
+    print(f"hola mundo {timezone.now()}")
 #
 # @celery_app.task(name='check_page_status')
 # def check_page_status():
