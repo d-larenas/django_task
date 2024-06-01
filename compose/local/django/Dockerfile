@@ -35,7 +35,7 @@ RUN mkdir ${APP_HOME}
 
 WORKDIR ${APP_HOME}
 
-ADD . ${APP_HOME}
+COPY . ${APP_HOME}
 
 # Install required system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
