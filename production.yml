@@ -1,10 +1,5 @@
 version: '3.7'
 
-
-volumes:
-  production_postgres_data: {}
-  production_postgres_data_backups: {}
-
 services:
   django: &django
     image: godiel/django_task:latest
@@ -12,13 +7,11 @@ services:
       - gropoz-network
     env_file:
       - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
+      - ./.envs/.production/.mysql
     volumes:
       - .:/app:z
       - ./celery_beat_schedule:/celery_beat_schedule
     command: /start
-    depends_on:
-      - postgres
     ports:
       - "5000:5000"
 
@@ -48,21 +41,6 @@ services:
     command: /start-celery-beat
     networks:
       - gropoz-network
-
-  postgres:
-    build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: apps_production_postgres
-    volumes:
-      - production_postgres_data:/var/lib/postgresql/data:Z
-      - production_postgres_data_backups:/backups:z
-    env_file:
-      - ./.envs/.production/.postgres
-    networks:
-      - gropoz-network
-    ports:
-      - "5432:5432"
 
 networks:
     gropoz-network:

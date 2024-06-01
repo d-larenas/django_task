@@ -1,7 +1,7 @@
 -r base.txt
 Werkzeug==1.0.1 # https://github.com/pallets/werkzeug
-#psycopg2-binary not production
-psycopg2-binary
+mysqlclient==2.1.0 # https://github.com/PyMySQL/mysqlclient
+mysql-connector-python
 # Code quality
 # ------------------------------------------------------------------------------
 flake8==3.9.1  # https://github.com/PyCQA/flake8

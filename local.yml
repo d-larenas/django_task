@@ -1,8 +1,8 @@
 version: '3.7'
 
 volumes:
-  local_postgres_data: {}
-  local_postgres_data_backups: {}
+  local_mysql_data: {}
+  local_mysql_data_backups: {}
 
 services:
   django: &django
@@ -12,33 +12,38 @@ services:
     image: apps_local_django
     container_name: django
     depends_on:
-      - postgres
+      - mysql
     volumes:
       - .:/app:z
     env_file:
       - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./.envs/.local/.mysql
     ports:
       - "5000:5000"
     networks:
       - gropoz-network
     command: /start
 
-  postgres:
+  mysql:
     build:
       context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: apps_production_postgres
-    container_name: apps_local_postgres
+      dockerfile: ./compose/production/mysql/Dockerfile
+    image: apps_production_mysql
+    container_name: mysql
     volumes:
-      - local_postgres_data:/var/lib/postgresql/data:Z
-      - local_postgres_data_backups:/backups:z
+      - local_mysql_data:/var/lib/mysql:z
+      - local_mysql_data_backups:/backups:z
     env_file:
-      - ./.envs/.local/.postgres
+      - ./.envs/.local/.mysql
     networks:
       - gropoz-network
     ports:
-      - "5432:5432"
+      - "3306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "--silent" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:6-alpine
