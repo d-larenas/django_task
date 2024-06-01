@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.10-slim-buster
+ARG PYTHON_VERSION=3.10.8-slim-bullseye
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
 
@@ -11,9 +11,8 @@ ARG BUILD_ENVIRONMENT=local
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
-  # psycopg2 dependencies
-  libpq-dev
-
+  # mysql dependency
+  default-libmysqlclient-dev
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements .
 
@@ -36,8 +35,8 @@ WORKDIR ${APP_HOME}
 
 # Install required system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
-  # psycopg2 dependencies
-  libpq-dev \
+  # mysql dependency
+  default-libmysqlclient-dev \
   # Translations dependencies
   gettext \
   # cleaning up unused files
