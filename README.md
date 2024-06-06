@@ -84,6 +84,11 @@ project created to generate tasks programs.
     URL_BASE_BACKEND=http://localhost:8000
     URL_REDIRECT=https://page.gropoz.com
     CELERY_BROKER_URL=redis://redis:6379/0
+    TIME_ZONE=America/Santiago
+    LANGUAGE_CODE=es-cl
+    USE_I18N=True
+    USE_L10N=True
+    USE_TZ=True
     
 :wrench:**Add variables to .postgres file**
 

@@ -19,17 +19,17 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
 # In Windows, this must be set to your system time zone.
-TIME_ZONE = "America/Santiago"
+TIME_ZONE = env("TIME_ZONE")
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "es-cl"
+LANGUAGE_CODE = env("LANGUAGE_CODE")
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
-USE_I18N = True
+USE_I18N = env.bool("USE_I18N", True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
-USE_L10N = True
+USE_L10N = env.bool("USE_L10N", True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
-USE_TZ = True
+USE_TZ = env.bool("USE_TZ", True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
@@ -83,6 +83,9 @@ DATABASES = {
         'PASSWORD': env("MYSQL_PASSWORD"),
         'HOST': env("MYSQL_HOST"),
         'PORT': env("MYSQL_PORT"),
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
