@@ -23,10 +23,10 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd gropoz_app
-          docker compose -f pull
-          docker compose -f build
-          docker compose -f down
-          docker compose -f up -d django
+          docker compose  pull
+          docker compose  build
+          docker compose  down
+          docker compose  up -d django
 
 
 
