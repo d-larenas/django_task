@@ -123,22 +123,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .then(data => {
                     modalBody.innerHTML = ""; // Limpiar la tabla antes de agregar nuevos datos
+                     // Asegurarnos de que todos los campos estén presentes
+                    var network = data.network || {};
+                    var hosts = network.hosts || {};
+                    var autonomous_system = network.autonomous_system || {};
+                    var location = data.location || {};
 
                     // Crear las filas de la tabla con los datos
                     var rows = [
-                        ["IP", data.ip],
-                        ["CIDR", data.network.cidr],
-                        ["Hosts", `${data.network.hosts.start} - ${data.network.hosts.end}`],
-                        ["ASN", data.network.autonomous_system.asn],
-                        ["Nombre ASN", data.network.autonomous_system.name],
-                        ["Organización", data.network.autonomous_system.organization],
-                        ["País ASN", data.network.autonomous_system.country],
-                        ["RIR", data.network.autonomous_system.rir],
-                        ["Ciudad", data.location.city],
-                        ["País", data.location.country],
-                        ["Zona Horaria", data.location.timezone],
-                        ["Latitud", data.location.latitude],
-                        ["Longitud", data.location.longitude]
+                        ["IP", data.ip || "No disponible"],
+                        ["CIDR", network.cidr || "No disponible"],
+                        ["Hosts", `${hosts.start || "No disponible"} - ${hosts.end || "No disponible"}`],
+                        ["ASN", autonomous_system.asn || "No disponible"],
+                        ["Nombre ASN", autonomous_system.name || "No disponible"],
+                        ["Organización", autonomous_system.organization || "No disponible"],
+                        ["País ASN", autonomous_system.country || "No disponible"],
+                        ["RIR", autonomous_system.rir || "No disponible"],
+                        ["Ciudad", location.city || "No disponible"],
+                        ["País", location.country || "No disponible"],
+                        ["Zona Horaria", location.timezone || "No disponible"],
+                        ["Latitud", location.latitude || "No disponible"],
+                        ["Longitud", location.longitude || "No disponible"]
                     ];
 
                     // Insertar los datos en la tabla
