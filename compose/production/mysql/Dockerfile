@@ -1,4 +1,4 @@
-FROM mysql:8.0.29
+FROM mariadb:10.6.18
 
 COPY ./compose/production/mysql/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*

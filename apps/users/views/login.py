@@ -5,8 +5,8 @@ from datetime import datetime
 from django.conf import settings
 from django.shortcuts import redirect, render
 from rest_framework_simplejwt.views import TokenObtainPairView
-from drf_api_logger.models import APILogsModel
-from drf_api_logger.utils import get_headers, get_client_ip, mask_sensitive_data
+from apps.drf_api_logger.models import APILogsModel
+from apps.drf_api_logger.utils import get_headers, get_client_ip, mask_sensitive_data
 
 # serializers
 from apps.users.serializers import LoginGetTokenObtainPairSerializer
