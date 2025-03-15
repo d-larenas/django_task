@@ -25,11 +25,11 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          cd django_task
-          docker-compose -f production.yml pull
-          docker-compose -f production.yml build
-          docker-compose -f production.yml down
-          docker-compose -f production.yml up -d
+          cd gropoz_app
+          docker compose  pull
+          docker compose  build
+          docker compose  down
+          docker compose  up -d django
 
 
 
