@@ -1,11 +1,35 @@
 from config import celery_app
 from django.utils import timezone
-
+from apps.drf_api_logger.models import APILogsModel
+import requests
 
 
 @celery_app.task(name='test')
 def test_db():
     print(f"hola mundo {timezone.now()}")
+
+
+@celery_app.task(name='get_data_ip')
+def get_data_ip():
+    print(f"update ip {timezone.now()}")
+    logs_ip = APILogsModel.objects.filter(client_ip_data__isnull=True)
+    if not logs_ip.exists():
+        print("empty")
+        return
+    url = "https://ip.guide/"
+    for log_ip in logs_ip:
+        try:
+            ip = log_ip.client_ip_address
+            url_get = f"{url}{ip}"
+            print(url_get)
+            response = requests.get(url_get)
+            if response.status_code == 200:
+                response_json = response.json()
+                log_ip.client_ip_data = response_json
+                log_ip.save()
+        except Exception as err:
+            print(err)
+
 #
 # @celery_app.task(name='check_page_status')
 # def check_page_status():

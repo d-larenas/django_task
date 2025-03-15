@@ -21,6 +21,8 @@ if database_log_enabled():
 
 
     class APILogsModel(BaseModel):
+
+        client_ip_data = models.JSONField(null=True, default=None)
         api = models.CharField(max_length=1024, help_text='API URL')
         headers = models.TextField()
         body = models.TextField()
@@ -30,6 +32,8 @@ if database_log_enabled():
         status_code = models.PositiveSmallIntegerField(help_text='Response status code', db_index=True)
         execution_time = models.DecimalField(decimal_places=5, max_digits=8,
                                              help_text='Server execution time (Not complete response time.)')
+
+
 
         def __str__(self):
             return self.api
