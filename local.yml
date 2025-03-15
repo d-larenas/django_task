@@ -28,7 +28,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/mysql/Dockerfile
-    image: apps_production_mysql
+    image: apps_production_mariadb
     container_name: mysql
     volumes:
       - local_mysql_data:/var/lib/mysql:z

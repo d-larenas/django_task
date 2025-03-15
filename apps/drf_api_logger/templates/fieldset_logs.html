@@ -1,0 +1,179 @@
+
+<fieldset class="module aligned {{ fieldset.classes }}">
+    {% if fieldset.name %}<h2>{{ fieldset.name }}</h2>{% endif %}
+    {% if fieldset.description %}
+        <div class="description">{{ fieldset.description|safe }}</div>
+    {% endif %}
+    {% for line in fieldset %}
+        <div class="form-row{% if line.fields|length == 1 and line.errors %} errors{% endif %}{% if not line.has_visible_field %} hidden{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}">
+            {% if line.fields|length == 1 %}{{ line.errors }}{% else %}<div class="flex-container form-multiline">{% endif %}
+            {% for field in line %}
+                <div>
+                    {% if not line.fields|length == 1 and not field.is_readonly %}{{ field.errors }}{% endif %}
+                        <div class="flex-container{% if not line.fields|length == 1 %} fieldBox{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% if not field.is_readonly and field.errors %} errors{% endif %}{% if field.field.is_hidden %} hidden{% endif %}{% elif field.is_checkbox %} checkbox-row{% endif %}">
+                            {% if field.is_checkbox %}
+                                {{ field.field }}{{ field.label_tag }}
+                            {% else %}
+                                {{ field.label_tag }}
+                                {% if field.is_readonly %}
+                                    {% if field.field.field == 'client_ip_address' %}
+                                        <a href="#" data-modal data-content="{{ field.contents }}" data-client-ip="{{ field.contents }}">{{ field.contents }} </a>
+
+                                    {% else %}
+                                        <div class="readonly">{{ field.contents }}</div>
+                                    {% endif %}
+                                {% else %}
+                                    {{ field.field }}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% if field.field.help_text %}
+                        <div class="help"{% if field.field.id_for_label %} id="{{ field.field.id_for_label }}_helptext"{% endif %}>
+                            <div>{{ field.field.help_text|safe }}</div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% if not line.fields|length == 1 %}</div>{% endif %}
+        </div>
+    {% endfor %}
+</fieldset>
+
+
+<!-- CSS para el Modal -->
+<style>
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 3% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 65%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
+
+<!-- Modal -->
+<div class="modal" id="miModal" style="display: none;">
+    <div class="modal-dialog" style="max-width: 100%; margin-top: 0; margin-bottom: 5vh;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Información de la IP</h5>
+                <p id="modalContent"></p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+                <table id="modalTable" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modalTableBody">
+                        <!-- El contenido de la tabla será insertado dinámicamente aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("miModal");
+    var modalBody = document.getElementById("modalTableBody"); // Donde se insertarán los datos
+    var closeButton = document.querySelector(".close");
+
+    document.querySelectorAll("[data-modal]").forEach(function(button) {
+
+        button.addEventListener("click", function() {
+            const content = button.getAttribute("data-content");
+            document.getElementById("modalContent").textContent = content;
+            const urlApi = "https://ip.guide/";
+            const urlIp = urlApi + content
+            console.log(content);
+            fetch(urlIp)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la solicitud: " + response.status);
+                    }
+                    return response.json(); // Obtener la respuesta como JSON
+                })
+                .then(data => {
+                    modalBody.innerHTML = ""; // Limpiar la tabla antes de agregar nuevos datos
+
+                    // Crear las filas de la tabla con los datos
+                    var rows = [
+                        ["IP", data.ip],
+                        ["CIDR", data.network.cidr],
+                        ["Hosts", `${data.network.hosts.start} - ${data.network.hosts.end}`],
+                        ["ASN", data.network.autonomous_system.asn],
+                        ["Nombre ASN", data.network.autonomous_system.name],
+                        ["Organización", data.network.autonomous_system.organization],
+                        ["País ASN", data.network.autonomous_system.country],
+                        ["RIR", data.network.autonomous_system.rir],
+                        ["Ciudad", data.location.city],
+                        ["País", data.location.country],
+                        ["Zona Horaria", data.location.timezone],
+                        ["Latitud", data.location.latitude],
+                        ["Longitud", data.location.longitude]
+                    ];
+
+                    // Insertar los datos en la tabla
+                    rows.forEach(function(row) {
+                        var tr = document.createElement("tr");
+
+                        var td1 = document.createElement("td");
+                        td1.textContent = row[0]; // Campo
+                        tr.appendChild(td1);
+
+                        var td2 = document.createElement("td");
+                        td2.textContent = row[1]; // Valor
+                        tr.appendChild(td2);
+
+                        modalBody.appendChild(tr);
+                    });
+
+                    modal.style.display = "block"; // Mostrar el modal
+                })
+                .catch(error => {
+                    console.error("Error al obtener datos:", error);
+                    modalBody.innerHTML = "<tr><td colspan='2'>No se pudo cargar el contenido.</td></tr>";
+                    modal.style.display = "block"; // Mostrar el modal con mensaje de error
+                });
+        });
+    });
+
+    closeButton.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+</script>

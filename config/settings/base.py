@@ -112,13 +112,13 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "corsheaders",
-    "drf_api_logger",
     "django_celery_beat",
 ]
 
 LOCAL_APPS = [
     "apps.users.apps.UsersConfig",
     "apps.logs_page.apps.LogsPageConfig",
+    "apps.drf_api_logger.apps.LoggerConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -176,7 +176,7 @@ MIDDLEWARE = [
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
+    "apps.drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
 
 # STATIC
